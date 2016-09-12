@@ -40,10 +40,11 @@ public class TTTabBar: UIViewController {
         }
         
         initialTabBarHeight = tabBarHeight
-            
+        
         
         //Create the detailView
         detailView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height-tabBarHeight))
+        detailView.backgroundColor = UIColor.clearColor()
         
         //Creat TabBar view
         tabBarView = UIView(frame: CGRectMake(0, self.view.frame.height-tabBarHeight, self.view.frame.width, tabBarHeight))
@@ -250,7 +251,7 @@ public class TTTabBar: UIViewController {
     //MARK: hide/show tabBar
     public func hideTabBar(animated: Bool) {
         if !tabBarHidden  {
-            UIView.animateWithDuration(0.5) {
+            UIView.animateWithDuration(0.2) {
                 self.tabBarView.frame.origin.y += self.tabBarView.frame.width
                 self.detailView.frame.size.height = self.view.frame.height
             }
@@ -260,7 +261,7 @@ public class TTTabBar: UIViewController {
     
     public func showTabBar(animated: Bool) {
         if tabBarHidden  {
-            UIView.animateWithDuration(0.5) {
+            UIView.animateWithDuration(0.2) {
                 self.tabBarView.frame.origin.y -= self.tabBarView.frame.width
                 self.detailView.frame.size.height -= self.contentTabBarView.frame.height
             }

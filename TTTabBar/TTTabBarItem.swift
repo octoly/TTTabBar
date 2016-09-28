@@ -20,12 +20,11 @@ public class TTTabBarItem: UIButton {
     //If is a button, set to yes
     public var isButton = false
     
-    
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    public override func drawRect(rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         // Drawing code
-        super.drawRect(rect)
+        super.draw(rect)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -34,14 +33,14 @@ public class TTTabBarItem: UIButton {
     
     //Init with default size
     public init(image: UIImage?, selected: UIImage?) {
-        super.init(frame: CGRectMake(0, 0, 0, 44))
-        self.setImage(image, forState: UIControlState.Normal)
+        super.init(frame: CGRect(x:0, y:0, width:0, height: 44))
+        self.setImage(image, for: UIControlState.normal)
         self.image = image
         self.selectedImage = selected
     }
     
     public init(viewController: UIViewController) {
-        super.init(frame: CGRectMake(0, 0, 0, 44))
+        super.init(frame: CGRect(x:0, y:0, width:0, height: 44))
         self.viewController = viewController
     }
 }

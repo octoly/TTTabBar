@@ -72,7 +72,7 @@ open class TTTabBar: UIViewController {
         tabBarView.frame = CGRectMake(0, self.view.frame.height-tabBarHeight, self.view.frame.width, tabBarHeight)
         
         //Verify that has defaultTabBar
-        if let tabBar = defaultTabBarItem {
+        if (defaultTabBarItem) != nil {
             
         }else{
             if tabBarItems.count > 0 {
@@ -165,7 +165,7 @@ open class TTTabBar: UIViewController {
             }
             
             //if users click on the same tab that is active, return
-            if let tabBar = activeTabBar {
+            if activeTabBar != nil {
                 if item == activeTabBar {
                     return
                 }

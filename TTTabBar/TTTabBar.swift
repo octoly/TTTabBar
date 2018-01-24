@@ -16,7 +16,7 @@ open class TTTabBar: UIViewController {
     private var tabBarView: UIView! //View of tabBar
     private var contentTabBarView : UIView! //Content, where background is render
     
-    private var tabBarHidden = false
+    public var tabBarHidden = false
     
     //TabBar Items, which include VC
     public var tabBarItems: [TTTabBarItem] = []

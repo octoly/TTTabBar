@@ -113,7 +113,7 @@ open class TTTabBar: UIViewController {
         for tabBarItem in tabBarItems {
             //Set images if has
             if let image = tabBarItem.image {
-                tabBarItem.setImage(image, for: UIControlState.normal)
+                tabBarItem.setImage(image, for: UIControl.State.normal)
             }
             
             if defaultTabBarItem == tabBarItem {
@@ -122,7 +122,7 @@ open class TTTabBar: UIViewController {
             }
             
             //Call action on touchUpInside
-            tabBarItem.addTarget(self, action: #selector(self.tabBarItemClicked(sender:)), for: UIControlEvents.touchUpInside)
+            tabBarItem.addTarget(self, action: #selector(self.tabBarItemClicked(sender:)), for: UIControl.Event.touchUpInside)
             
             
             //if the height of the tabBarItem, is default (40), change to tabBarView height
@@ -152,7 +152,7 @@ open class TTTabBar: UIViewController {
         }
     }
     
-    public func tabBarItemClicked(sender: AnyObject) {
+    @objc public func tabBarItemClicked(sender: AnyObject) {
         if let tabBar = sender as? TTTabBarItem {
             self.loadViewControllerFrom(tabBarItem: tabBar)
         }
@@ -177,7 +177,7 @@ open class TTTabBar: UIViewController {
             
             self.ttTabBar(tabBar: self, tabWillDisappear: tabBar)
             if let image = tabBar.image {
-                tabBar.setImage(image, for: UIControlState.normal)
+                tabBar.setImage(image, for: UIControl.State.normal)
             }
             
             //Remove actual View
@@ -195,7 +195,7 @@ open class TTTabBar: UIViewController {
         if let item = tabBarItem {
             //Change image to the new tabBarItem to selected
             if let image = item.selectedImage {
-                item.setImage(image, for: UIControlState.normal)
+                item.setImage(image, for: UIControl.State.normal)
             }
             
             
@@ -207,8 +207,8 @@ open class TTTabBar: UIViewController {
                 
                 vc.view.frame = self.detailView.bounds
                 detailView.addSubview(vc.view)
-                self.addChildViewController(vc)
-                vc.didMove(toParentViewController: self)
+                self.addChild(vc)
+                vc.didMove(toParent: self)
                 
                 self.ttTabBar(tabBar: self, tabDidAppear: item)
             }
@@ -221,7 +221,7 @@ open class TTTabBar: UIViewController {
         if let tabBar = activeTabBar {
             self.ttTabBar(tabBar: self, tabWillDisappear: tabBar)
             if let image = tabBar.image {
-                tabBar.setImage(image, for: UIControlState.normal)
+                tabBar.setImage(image, for: UIControl.State.normal)
             }
             
             //Remove actual View
@@ -242,8 +242,8 @@ open class TTTabBar: UIViewController {
         
         vc.view.frame = self.detailView.bounds
         detailView.addSubview(vc.view)
-        self.addChildViewController(vc)
-        vc.didMove(toParentViewController: self)
+        self.addChild(vc)
+        vc.didMove(toParent: self)
     }
     
     // MARK: - Get Functions

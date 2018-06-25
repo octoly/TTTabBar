@@ -34,7 +34,7 @@ open class TTTabBarItem: UIButton {
     //Init with default size
     public init(image: UIImage?, selected: UIImage?) {
         super.init(frame: CGRect(x:0, y:0, width:0, height: 44))
-        self.setImage(image, for: UIControlState.normal)
+        self.setImage(image, for: UIControl.State.normal)
         self.image = image
         self.selectedImage = selected
     }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                   = 'TTTabBar'
-    spec.version                = '1.2'
+    spec.version                = '2.0'
     spec.license                = { :type => 'MIT' }
     spec.homepage               = 'https://github.com/Edig/TTTabBar'
     spec.authors                = { 'Eduardo Iglesias' => 'edig50@gmail.com' }
